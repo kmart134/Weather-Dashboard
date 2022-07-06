@@ -1,0 +1,23 @@
+
+header{
+    color: white;
+    background-color: rgb(107, 107, 128);
+    padding: 1em;
+    border-radius: 15px;
+}
+
+.container-fluid {
+    background-color:rgb(202, 202, 226);
+    padding: 1em;
+    border-radius: 15px;
+}
+
+.btn{
+    background-color: rgb(91, 91, 136);
+    border-style: solid, black;
+    height: 35px;
+
+
+
+}
+

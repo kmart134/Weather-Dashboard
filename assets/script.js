@@ -5,7 +5,7 @@ var openWeatherUrl = 'https://api.openweathermap.org';
 
 //html Element references
 var searchForm = document.querySelector("#search-form");
-var searchText = document.querySelector("#search-input");
+var searchText = document.querySelector("#search-input").value;
 var today = document.querySelector("#today");
 var forecastContainer = document.querySelector("#forecast");
 var history = document.querySelector("#history");
@@ -13,9 +13,13 @@ var history = document.querySelector("#history");
 //grabbing the values from the search, to later use in functions
 
 function searchHandle (){
+   console.log(searchText);
     //grab the search content
     // fetchLocation(data we received from search)
 }
+searchHandle();
+
+
 //FUNCTIONALITY for fethcing location--activity 3 in unit 6
 //call the location API
 
