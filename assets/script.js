@@ -1,4 +1,4 @@
-//SEARCH
+//Declare Variables
 var searchHistory= [];
 var openWeatherUrl = 'https://api.openweathermap.org';
 var apiKey = '5fac388ef92055f2e3608e994607821c';
@@ -10,6 +10,7 @@ var today = document.querySelector("#today");
 var forecastContainer = document.querySelector("#forecast");
 var history = document.querySelector("#history");
 var button = document.querySelector("#search-button");
+var name;
 
 
 
@@ -27,8 +28,7 @@ var search= searchText.value.trim()
 
 
 
-//FUNCTIONALITY for fethcing location
-//call the location API
+//use API to render Latitude and Longitude of uder input city
 
 function fetchLocation (search){
   
@@ -46,18 +46,21 @@ function fetchLocation (search){
       console.log (lat);
       var lon = data[0].lon;
       console.log (lon);
+      var name = data[0].name;
+      console.log (name);
 
+      document.querySelector(".city").innerText= "Weather in"+ name;
  
       
     fetchWeather(lat, lon); 
   
       
 })
-    //get data pertaining to location- using an API call
+   
 }
 
-//FUNCTIONALITY for  fetching weather
 
+//get data for the weather in location searched
 function fetchWeather(lat,lon){
     
 
@@ -72,17 +75,32 @@ function fetchWeather(lat,lon){
 
       var temperature = data.main.temp;
       console.log(temperature);
+      var humidity = data.main.humidity;
+      console.log(humidity);
+      var windSpeed = data.wind.speed;
+      console.log(windSpeed);
+      //double check if icon shows up
+      var icon = data.weather[0].icon;
+      console.log(icon);
+
+
+      //render content on the page
+      renderWeather();
+      
+      document.querySelector(".icon").src= "https://openweathermap.org/img/wn/"+icon+ "@2x.png";
+      document.querySelector(".temp").innerText=temperature +"°F";
+      document.querySelector(".humidity").innerText= "Humidity: "+humidity+"%";
+      document.querySelector(".wind").innerText= "Wind Speed: "+ windSpeed + "mph"; 
+
     })
 
-//get data for the weather in location we searched using an API call
-
 }
 
-//FUNCTIONALITY for rendering content on the page
+
 function renderWeather (data){
-    //append information
 }
 
+//five day forecast
 //History Feature .. use local storage
 
 button.addEventListener('click', searchHandle);
