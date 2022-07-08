@@ -47,15 +47,52 @@
             </aside>
 
             <div class="col-lg-9">
-                <section id="today" class="row mt-3"></section>
-                <section id="forecast" class="row mt-3"></section>
+                <section class="row mt-3"></section>
                 <div class="weather">
-                    <h3 class="city">Weather in Denver</h3>
-                    <div class = "temp"> Temperature</div>
+                    <h3 class="city">Weather in:</h3>
+                    <div id="today"></div>
+                    <div class= "temp"> Temperature</div>
                     <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEBUQEhIVFRUPFRUQDxUVEhYVFRUVFRUWFhUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQGi8fHR0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAACAwABBAUGBwj/xABFEAACAQIDBAYGCAIHCQAAAAAAAQIDEQQSITFBUZEFE2FxgaEGFCKxwdEHMkJSYpLh8DOCFiNDcqLi8RUXU1Rzk7LC0v/EABkBAQEBAQEBAAAAAAAAAAAAAAABAgMEBf/EACYRAQEAAgEFAQABBAMAAAAAAAABAhESAxMhMUFRkSJSYWIEQnH/2gAMAwEAAhEDEQA/AM0YjVEkYjEj7z5ewqIaiWkHGIFRiaYoXGI2CM0goxHU42BhE0U4GbWpDKcLhKjqMpUzVCkcrW8cWRUA3hzqU8LcfUwVlexzvUdeDzsqIqVI7FTDmWrSOkyYuLlTgKlA6FSmZ5wOkrnWOURcomqURUom5WazuIDiaHECUSoQ4gOI9xAaKhDQLQ5xAaKEtAtDWgWgEtANDmgWgENAtDmgGgpTQDQ1oFohspoFoa0C0AqxQyxCK9DFBKJaQyMSshURkYlqIaRFSKGwRUYjYRM0hlOJqpUxNOJrpI5ZOkaKNM6WFw1zJhjv9GRTew8/Uy074Q/CYFJammthlJWHEPHcrbt6JjHDxuBscXEUrHscVC8TzeNpno6We3LPFw6sDJOJ060TFVievGvPlGKcRUkaZxFSidY51naAaHtANGmSGgGhzQDRUJaAcRzQLRQhxAcR7QDRQloFoa0A0UKaAaHNAuJAhxAaHtANEUloFoc0A0AqxA7EA9EojIIiQyKMoulG73eLsFlJFGmdXMtUr/e1v3bbeRmqXGGl+HPkMiioxHQRKQUEaqSM8UPpnOukrdh2dzo6rZnn6TOjhqx5+pjt3xr06ZDnYfGbEaZ4xI8lwrvMoZiJpLU89jpJmzF4lvTkcnEy1O/Tw05Z5MlZGOojVUZnmevFwyrLNCpI0TQqSOkcqzyiBKI+SAaNMs7QDiPcQGjQQ0A0PaAcShDQLQ5xAaKhLiC4jmgWi7CWgXEc4guIUiUQHE0NAOJFZ3EBxHuIDiAnKQZlIQehihkUUkGkZQSQcUDFDIogKKGRRUBqRmrFxGxAig0ZrUOgzTTnYyRGRZzsblb6dYbOuYIyCczHF05NPXa3E4mqmJcikakc8veyZiJGuqtDNJG4xvZEkLaHyQto3GSWgJIe0A4mtoQ0LcTRKIDiUZ3EBo0OIDiXYzuILiPcQXE0jO4guJocQHEBDiC4j3EFxKpDiC4j3EFois7iA4mhxAcSBGUg3KWNj39X0ZlBXs56p+zpz2hUfRqcvrSTWuRZknzSkjqYTpy7tJNPZ7VkudkdSVWEo6VFG+t01dc9OZ829bqT29k6WFeZr+jWtlJRk/qxbzX8dDlYrAVKbtKL1V07O3Ox7OMpOa/racknr7Npc7tJm+Tvp71tE/5GWPvyl6GN9eHzeKGxPYY3oijlcnDJl1bhd3/lS9x5/EdH5W3GcHHavbjdruep6Metjk4ZdK4saQxR0vu2EcLb7+8iNsLQUQQ4w/dyVYJMu4JZNLtLlMsliptTDoQpv62bTXR7ezY7d4FiiWbJdOhg8PhmnUk3ZaKDd2vxezbN4COk8PQy56dTglBRltvq7t6ae4yNASiSYXe91q5zWtEOIEoj2gJROu3JmkgWj03QHR38ScknKn7MU1mtK127eR0cVh408PenBKclbMoRUtdq0Xkccv8AkTG607Y9G2beGcSnE71LoSpVvNtRel82id27vTw8xUug5qLlng8rasntS+0tNm46TrY36zellPjhuALgasgLiddubI4gOJqlABxLsZnEFxNDgC4F2MziC4nXweCpSV6lXL2Ja82aXgcKv7R/nj8EccutJdeXSdO15xxBcT0Lp4RdvjL4AylhPu+UjPe/1v8ADXb/AMx57KQ7UnheD8yDu/607f8AmNUcU+800sSt6Xi3fwMc8DUi7OLRoo9HVX9l8jlbj+tzk6lOtS3KV+yeXXxO3hMZBK+Saa/vS5taM83R6Nq32eaXmNqYyrGLpyjp43Xc7nG4zL1XSZa9vXTleKu7a3vF253OPiuhlKby2in9WSlKV32pp237zjUsfJW26bmaqXSlVO8czfa7377bRjhlj6Lnjl7bI9Eyjlzxi1e105KXZfLc3Pouiv4lrt8VH3WOZHpDFt6Rav8Ag08zRUp1pRcp5brc8t33DK5faYzH5A4voW+tLfuzX8U3Yx4ro2pT2rTc9z+QzBxlKdnJrhwXcj0M8Pmp5H7V1ta38dC9zLDUt2nbmW7PDyGVhKJ2cX0coQ3SlsSSs38Wc+WDqK3sS12aM7Y9SVwywsZ7FWG5GVlNbYKaKsOyAuJdgJU3ZPc728BbgOylOJdjPKJVPSSbV0nez2Me4guBdo24Xpbq3JxpxvNttu99d3cXV6fqP7Me3b8Gc2UCrGO3h7033MvWzn0jUu3m+tq926xjlO0rxuhzpgSpm5JGblazNFZR7gDkNbZV6lPbltfZmaj/AOTQFfByjty68JxfuY1QvtdlzJUoJbJX/laM8rv21qMbprivMXKBtWGb2Iv1CezI/FDuT9WY38c1xAcDfWwsouzWol0xzlNMjgA4Gt0wHAcjTLkIaMhY5GnqsN0pmdpQilu9lvz19w105TmrVGluS6yOi36pLxOZTptbG13M1UMVOGifg7tHj4yecXo578ZOlCh9qcpWW5ScnL+ZydvI0UMTSUdE7rdJ+0+5t2OY+k5PbCD8CLpB7ckPCKRzuOd9tzPGenS9fTX3N2sVJ+4dStFqTkr90VpzVjlrpSe5W8f0FSxDf2Y345blnTv/AIdyPSSrRekZrN+b/UwYurF6yqwcv+mn4avQ5E03tS8IxXuRFTNY9KT6zl1d/HQpdJOOl01utD/MjRQ6RSd8t3xvl+LOVGmaIUzpcMXPuZOn/tGm3mcZX46fMdGs8t4pJPZvb18FuZyVTL6ozenj8anVy+t+KpQmm5ZYyexp623Zkcqd7Wvpw3GiFJcHz/QNUFxS7y4zj9ZyvL4wZCZDf6u92vcmXHCSeljfOMcK53VldWdddHy+BdSnCmrPWTWl1ouehnvT41Olfvhx+qKdI3qpFP20la31ZXvfejPVxXCMbLbtu/FmpntO3oiOHuOXRcnrsW9y0t3m7BK66yPs30s/gxjSs4tu19/s3avouw55daz06Y9KfXKnhKcVeVVa7MsW33620BoYSFSLcamzbeNtPBs1YnBwd3q32vXnwFUqKVlZWVvEndy17Xhjv0p9GQWjk791tLcTLVwkE2k9mivZ35bDbPXRO2u/W/Z2C50Y8fj8STqX7VuE+QmWGgklfVtZtE2l2X0KrzVlGNkltu0m7vbcKdNJiZU+wb352evGiOul96XMa8Y0rRVr7Xd35lSp9gGUtuNZnKMtVt63fMU4m1wE1ssU5SailtbdlzNTORLjazuj2rz+QqVM2OmU6ZO4cGLqyGvqyh3F7ddh5ePkCqae88E/SrG/8tT/AO5+oL9KOkLaYeitd7b04fXXM8newn/afy9Hay/tfQOqXFBKlHe+R87/AKS9J7qNDk+X8UbT9LMck3LD0HZ2dp2Seis/bety9/D+6fydq/j6GnHcvI0Qgnu8j5dW+kDEwvehQunldpt62T3S4PaVT+k3EL+wpbeM1pw2+ZuZS+qzxv2Pq0aUeD5ofGEeC8dT5BV+k/FZm40qKjuTU5PY9slJX1tuWwtfSfistnRo5r7UqiVuGXM9e2/gN7+nHXx9jpNS0dl2aeVhkcPH/T9T45/vSxK+rQpJ7rub8k0ZMR9JmPlsdKGzWNO70v8AfbWt+G5E9equt+4+4qjHfd+7yLdKPBeR8Iw/0j9Ixkm60ZrfGVKFnre3spPs2nSX0r4v/g0OzSpw1+1x1Hn9OP8Ah9mjGPZyRFUsnp3ao+C0/pE6RUm+uTTd8rpU7LW9lZJ23bdgNL6QukYycuvTzfZdODitmxWutnHewar76qqt+rKliF2nweH0j9IK/wDWQeaWa7pJ20SypbFH2eG96hYP6QukE1HrKcs2ic6a0u73vG3xJqL/AFPuEsSu3mDUxCkrNXXakz5C/TPHys1Ww2n1kqcmn3u74brbQOmPTjFOlKLdBZ04XpxrRkrrVxk56NEnU6duk45PqeI6ta5VHdsSQqNWCWZT+ta1nGzvstpqfn7FY+rVlnqVJTloryk29FYGWLqO16k/Zs4+3LRx+q1rpa+h05JwfeekelaNOnKpUq3yKUms23InJpLjox9LG0ZQU04pNJpuSe6+1n56c29rfHbv4kc20otuybaV9E3a7S46LkTkvB+iKOMhUipwkpRmrxlFpprsZbqdnkfnVMZRxM4O8Jyi3tcZyi3bi0xs4P0FOotrQqVRdh8FqY6rJNOrUae1OpJp993rtfMpYqWTJe63Xb07tdCLxfbp9M4eLnGVWCdJZpq6vFdpkwfpRhKukasU7X9u8NMzj9rtXmuJ8WbKFOL7XU9I8Gm08RSur39tbtWYX6YYGzl160s7ZJ31tsVrvbu7T5EQi8X0n+n+Hyt5KmZN2jZaq+jvfTTU876S+lvrVJUo03BXUpPPe710slqu08wQpp6iXppWWHjRhHLOCjF1cyk2lp9Vx22trfiSv6b1p0nBwipSjlzxck1xaW57d55cgXTq0enqsYxim0oRUVapUSslbYpW3FnJIB34tLgEp/i8jmLE9i5BxrN7vI8l6db5Ojnv9r3mdYOnZrWz26y17+IqMnwXMZGXakTjZ6q7ieoUu1eL+RF0XT4y5/5S+t/HyJ18fvMbz/U3BLoqnxf5l8if7Kp8X+dfIrro8SdauL5foTef6u4j6LpfefP9CLounx9/zL6xcZeXyKzrjL/D8hvP9PAo9HUt/wD7fMJYCj+/1FuceMvL5AOceE+b+A/r/avg/wBTpLh42/8Aknq9Pclyi/gIVRfdl+Z/MnW8Ieb+Y1l+puHerw4R/Kio0op3i7NbPZXv2ies/AuZTq/gj+VF1f0uUa3WlvmBUxMVuTf92Px1Myry4R8IpDPWnvHGnKUPXRf9mnz+bKSpt/wrd1i3iO34FesLt95rym4NYaD+ylz+AXq8VshB+BmdSPHyKX97w1Gr+m4fKjB7aa8H8gXh6evsP8zv7xMqjX7/ANClVl2F1f03FSw9P8fl8gHh4bpO/bH4hOt4cvgA6j4o6TbIHhvxLmi1hfxQ/MiOTe5eDLy3+z56F3U1UeClxXMF4WXAtw7bdzZP5n4XG6FOk+BTpvgHKXa/EBtm/KKaKLuS4VRCEKNWXv5Eyd/L9RHWMnWMxqo0KmuL5JBKEe38y+CM3WMnWsnGq1rLw/xMNVI7oow9ay+sJwTbf1y4RJ13YjA6jJnHbXbeq/dyC699hzs5TkTtw5V0fWO7kV612nOuTOXtw5V0fWl94p4nt/fI57mVmHbhut0sR+/2hfrBkuQ1wiNPrIMq4hlqLexF4w0PrP3YmYioS4PkNVHuXj8ibhonPfd5B9S3wXil5B5fxe8rTiN/ipHDrfJeDGerw4+Yqy7Qr9jJd/ptcoR7eTAcF+2W593Mpz7h5NplXC4LT4MmftJn7y+RbjL9sq74lZ/3cpy/dyi7Ps5FO/BeQNyXLpEuyZv3Yq5LhV37CAkAhCEKIQhALIUQCyEJYglyXJYu3aBVyg1btLTXAbCwlEYptbETrHxJuio0nwfuDVNcObFuTKuPKHKaWy3JMt4l8TPmJmJxXyb1j4vmys6/bF3JcugebsJnF3IXQNyBbKIBZLlFAXchRALIUQohCEAhCEuBCFXIBZCEAhZRALIQgF6kuQhBRCEAhCEAhLkIBCFEKIWUQCyiEAhCEAhCEAhCEAhCEAhCEAhCEA1dFxTrQUkmrttNXTsm9U9uw7NLpynCTXUQVm1eEFFpcbb3t4EIWRL7VW6WpSk5dZNX3JzXkk7EIQmlf//Z" alt="image of weather" class="icon"/>
                     <div class = "humidity">Humidity</div>
                     <div class="wind">Wind speed</div>
 
+
+                <section id="forecast" class="row mt-3"></section>
+                    <div class="card0">
+                        <h4 id="forecastTitle0">date</h4>
+                        <div id = "temp0"> Temperature</div>
+                        <img src="" alt="image of weather" id="icon0"/>
+                        <div id = "humidity0">Humidity</div>
+                        <div id="wind0">Wind speed</div>
+                    </div>
+                    <div class="card1">
+                        <h4 id="forecastTitle1">date</h4>
+                        <div id = "temp1"> Temperature</div>
+                        <img src="" alt="image of weather" id="icon1"/>
+                        <div id = "humidity1">Humidity</div>
+                        <div id="wind1">Wind speed</div>
+                    </div>
+                    <div class="card2">
+                        <h4 id="forecastTitle2">date</h4>
+                        <div id = "temp2"> Temperature</div>
+                        <img src="" alt="image of weather" id="icon2"/>
+                        <div id = "humidity2">Humidity</div>
+                        <div id="wind2">Wind speed</div>
+                    </div>
+                    <div class="card3">
+                        <h4 id="forecastTitle3">date</h4>
+                        <div id = "temp3"> Temperature</div>
+                        <img src="" alt="image of weather" id="icon3"/>
+                        <div id = "humidity3">Humidity</div>
+                        <div id="wind3">Wind speed</div>
+                    </div>
+                    <div class="card4">
+                        <h4 id="forecastTitle4">date</h4>
+                        <div id = "temp4"> Temperature</div>
+                        <img src="" alt="image of weather" id="icon4"/>
+                        <div id = "humidity4">Humidity</div>
+                        <div id="wind4">Wind speed</div>
+                    </div>
                 </div>
             </div>
         
@@ -65,6 +102,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/script.js"></script>
 
     

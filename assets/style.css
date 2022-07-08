@@ -17,7 +17,14 @@ header{
     border-style: solid, black;
     height: 35px;
 
+}
 
+.card0, .card1, .card2, .card3, .card4{
+    display:inline-block;
+    height: 220px;
+    width: 175px;
+    border-style: solid, black, 4px; 
+    background-color: rgb(232, 226, 235);
 
 }
 

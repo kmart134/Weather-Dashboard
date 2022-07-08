@@ -2,6 +2,7 @@
 var searchHistory= [];
 var openWeatherUrl = 'https://api.openweathermap.org';
 var apiKey = '5fac388ef92055f2e3608e994607821c';
+var NowMoment = moment();
 
 //html Element references
 var searchForm = document.querySelector("#search-form");
@@ -13,7 +14,7 @@ var button = document.querySelector("#search-button");
 var name;
 
 
-
+today.innerHTML = NowMoment.format('dddd')+"   " + NowMoment.format('MMM Do YY');
 
 //grab the values from the search, to later use in functions
 var searchHandle = function(event){
@@ -49,7 +50,7 @@ function fetchLocation (search){
       var name = data[0].name;
       console.log (name);
 
-      document.querySelector(".city").innerText= "Weather in"+ name;
+      document.querySelector(".city").innerText= "Weather in "+ name;
  
       
     fetchWeather(lat, lon); 
@@ -59,12 +60,11 @@ function fetchLocation (search){
    
 }
 
-
 //get data for the weather in location searched
 function fetchWeather(lat,lon){
     
 
-    var weatherURL= `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
+    var weatherURL=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
 
     fetch(weatherURL)
     .then(function (response) {
@@ -79,28 +79,61 @@ function fetchWeather(lat,lon){
       console.log(humidity);
       var windSpeed = data.wind.speed;
       console.log(windSpeed);
-      //double check if icon shows up
       var icon = data.weather[0].icon;
       console.log(icon);
 
 
-      //render content on the page
-      renderWeather();
-      
+    //render content on the page
       document.querySelector(".icon").src= "https://openweathermap.org/img/wn/"+icon+ "@2x.png";
       document.querySelector(".temp").innerText=temperature +"°F";
       document.querySelector(".humidity").innerText= "Humidity: "+humidity+"%";
       document.querySelector(".wind").innerText= "Wind Speed: "+ windSpeed + "mph"; 
 
+      renderForecast(lat, lon);
     })
 
 }
 
 
-function renderWeather (data){
+//five day forecast
+function renderForecast(lat, lon){
+
+ var forecastURL= `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${apiKey}&units=imperial`
+
+ fetch(forecastURL)
+ .then(function (response) {
+   return response.json();
+ })
+ .then(function (data) {
+   console.log(data)
+   
+
+
+  for (var k = 0; k < 5; k++) {
+    //Time of the forecasted data, Unix, UTC
+    const { dt } = data.daily[k];
+    
+    const { day } = data.daily[k].temp;
+    document.getElementById("temp" + [k]).innerText = "Temperature: " + day + " °F";
+    console.log(k);
+
+    const { wind_speed } = data.daily[k];
+    document.getElementById("wind" + [k]).innerText = "Wind Speed: " + wind_speed + " mph";
+
+    const { humidity } = data.daily[k];
+    document.getElementById("humidity" + [k]).innerText = "Humidity: " + humidity + "%";
+
+    const { icon } = data.daily[k].weather[0];
+    document.getElementById("icon" + [k]).src= "https://openweathermap.org/img/wn/"+icon+ "@2x.png";
+
+    console.log(dt,day,wind_speed,humidity,icon)
+    
+
+  }
+})
+
 }
 
-//five day forecast
 //History Feature .. use local storage
 
 button.addEventListener('click', searchHandle);
