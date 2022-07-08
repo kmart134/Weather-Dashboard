@@ -9,7 +9,7 @@ var searchForm = document.querySelector("#search-form");
 var searchText = document.querySelector("#search-input");
 var today = document.querySelector("#today");
 var forecastContainer = document.querySelector("#forecast");
-var history = document.querySelector("#history");
+var historyContainer = document.querySelector("#history");
 var button = document.querySelector("#search-button");
 var name;
 
@@ -54,7 +54,8 @@ function fetchLocation (search){
  
       
     fetchWeather(lat, lon); 
-  
+      
+    addToHistory(search);
       
 })
    
@@ -100,6 +101,7 @@ function renderForecast(lat, lon){
 
  var forecastURL= `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${apiKey}&units=imperial`
 
+
  fetch(forecastURL)
  .then(function (response) {
    return response.json();
@@ -110,9 +112,12 @@ function renderForecast(lat, lon){
 
 
   for (var k = 0; k < 5; k++) {
-    //Time of the forecasted data, Unix, UTC
+   
     const { dt } = data.daily[k];
-    
+    var date= moment.unix(dt).format("MM/DD/YYYY");
+    document.getElementById("forecastTitle" + [k]).innerText = date;
+    console.log(date);
+
     const { day } = data.daily[k].temp;
     document.getElementById("temp" + [k]).innerText = "Temperature: " + day + " °F";
     console.log(k);
@@ -134,6 +139,44 @@ function renderForecast(lat, lon){
 
 }
 
+function renderSearchHistory(){
+historyContainer.innerHTML="";
+
+for ( var i = searchHistory.length -1; i >= 0; i--){
+  var btn= document.createElement("button");
+  btn.setAttribute("type","button");
+  btn.setAttribute("aria-controls", "Today Forecast");
+  btn.classList.add("history-btn","btn-history");
+  btn.setAttribute("data-search",searchHistory[i]);
+  btn.textContent = searchHistory[i];
+  historyContainer.append(btn);
+}
+}
+
+
+function addToHistory(search) {
+  if (searchHistory.indexOf(search) !== -1){
+  return;
+}
+searchHistory.push(search);
+localStorage.setItem("search-history", JSON.stringify(searchHistory));
+renderSearchHistory();
+console.log(searchHistory);
+}
+
+
+function getSearchHistory(){
+  var storedHistory= localStorage.getItem("search-history");
+
+  if(storedHistory){
+    searchHistory=JSON.parse(storedHistory)
+  }
+  console.log(searchHistory);
+  renderSearchHistory();
+}
+
+
 //History Feature .. use local storage
+getSearchHistory();
 
 button.addEventListener('click', searchHandle);
